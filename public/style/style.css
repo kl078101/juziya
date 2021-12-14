@@ -31,5 +31,27 @@
     height: 17px;
   }
 
+  /* 头像样式优化 */
+  section.user_info {
+    padding-bottom: 10px;
+    margin-top: 20px;
+    text-align: center;
+    .gravatar {
+      float: none;
+      max-width: 70px;
+    }
+    h1 {
+      font-size: 1.4em;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 15px;
+    }
+  }
+
+  .gravatar {
+
+    max-width: 50px;
+    border-radius: 50%;
+  }
 
 </style>
