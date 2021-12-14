@@ -6,7 +6,7 @@
   </a>
     <a class="m-3" href="https://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.21c361dbUY0BG9" >粤ICP备xxxxxx号</a>
   <div class="float-right">
-    <a href="/about" >关于</a>
+    <a href="{{route('about')}}" >关于</a>
   </div>
 
 </footer>
