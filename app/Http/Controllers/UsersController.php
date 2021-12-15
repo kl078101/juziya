@@ -31,13 +31,17 @@ class UsersController extends Controller
             "name" => $request->name,
             "email" => $request->email,
             "password" =>  bcrypt($request->password),
-
-
         ]);
 
         Auth::login($user);
         session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
         return redirect()->route('users.show', [$user]);
+    }
+
+    public function destroy(){
+        Auth::logout();
+        session()->flash('success','您已经成功退出！');
+        return redirect('login');
     }
 
 }
