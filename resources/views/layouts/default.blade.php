@@ -20,6 +20,9 @@
 
     <div class="container">
       <div class="offset-md-1 col-md-10">
+        {{-- 引入提示 --}}
+        @include('shared._messages')
+
         @yield('content')
         {{-- 引入底部 --}}
         @include('layouts._footer')
