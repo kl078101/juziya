@@ -12,7 +12,7 @@ class UsersController extends Controller
     public function __construct(){
         //中间件，权限限制，非登陆用户不能访问个人页，except = 排除
         $this->middleware('auth',[
-            'except' => ['show', 'create', 'store']
+            'except' => ['show', 'create', 'store','index']
         ]);
 
         //未登陆才能访问登陆页
@@ -21,6 +21,10 @@ class UsersController extends Controller
         ]);
     }
 
+    public function index(){
+        $users = User::paginate(6);
+        return view('users.index',compact('users'));
+    }
 
     public function create(){
         return view('users.create');
