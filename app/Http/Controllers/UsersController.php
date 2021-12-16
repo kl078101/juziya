@@ -9,6 +9,19 @@ use Auth;
 class UsersController extends Controller
 {
     //
+    public function __construct(){
+        //中间件，权限限制，非登陆用户不能访问个人页，except = 排除
+        $this->middleware('auth',[
+            'except' => ['show', 'create', 'store']
+        ]);
+
+        //未登陆才能访问登陆页
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
+
+
     public function create(){
         return view('users.create');
     }
@@ -38,7 +51,9 @@ class UsersController extends Controller
         return redirect()->route('users.show', [$user]);
     }
 
+    //编辑
     public function edit(User $user){
+        $this->authorize('update', $user);
         return view('users.edit',compact('user'));
     }
 
