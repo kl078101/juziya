@@ -88,4 +88,10 @@ class UsersController extends Controller
         return back();
     }
 
+    // 模型关联
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
+
 }
