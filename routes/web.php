@@ -28,4 +28,7 @@ Route::delete('login','SessionsController@destroy')->name('logout');
 // 留言
 Route::resource('statuses', 'StatusesController', ['only' => ['store', 'destroy']]);
 
+// 粉丝界面
+Route::get('/users/{user}/followings', 'UsersController@followings')->name('users.followings');
+Route::get('/users/{user}/followers', 'UsersController@followers')->name('users.followers');
 
