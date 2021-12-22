@@ -31,8 +31,12 @@ class UsersController extends Controller
     }
 
     //用户个人页
-    public function show(User $user){
-        return view('users.show',compact('user'));
+    public function show(User $user)
+    {
+        $statuses = $user->statuses()
+                           ->orderBy('created_at', 'desc')
+                           ->paginate(10);
+        return view('users.show', compact('user', 'statuses'));
     }
 
     public function store(Request $request){
@@ -88,10 +92,5 @@ class UsersController extends Controller
         return back();
     }
 
-    // 模型关联
-    public function statuses()
-    {
-        return $this->hasMany(Status::class);
-    }
 
 }

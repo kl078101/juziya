@@ -42,10 +42,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //用户头像
+    //用户头像，在网上随便找了一张图
     public function gravatar($size = '100')
     {
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
+
+    // 模型关联
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
+
 }
