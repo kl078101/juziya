@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
         // 模拟内容
         $this->call(StatusesTableSeeder::class);
 
+        // 模拟关注
+        $this->call(FollowersTableSeeder::class);
+
         Model::reguard();
     }
 }
